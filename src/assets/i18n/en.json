@@ -21,9 +21,6 @@
     "CANCEL" : "cancel",
     "SUBMIT" : "Submit"
   },
-  "ACTION_TEXT": {
-   
-  },
   "ORDER_STATUS" : {
      "RCV":"Received" ,
      "PREP":"Preparing" ,

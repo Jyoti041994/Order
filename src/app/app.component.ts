@@ -13,7 +13,6 @@ import { takeUntil } from 'rxjs/operators';
 })
 
 export class AppComponent {
-  title = 'product-app-ui';
   unsubscribe : Subject <void> = new Subject();
 
   constructor(private translate: TranslateService,
