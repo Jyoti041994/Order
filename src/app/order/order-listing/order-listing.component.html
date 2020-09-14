@@ -1,0 +1,64 @@
+<section>
+  <div class="container order-container">
+    <div class="row">
+      <div class="col-sm-6 col-xs-12 head">
+        <h4>{{ "HEADING_TEXT.ORDER_LISTING_PAGE" | translate }}</h4>
+      </div>
+    </div>
+    <div *ngIf="orderData">
+      <div *ngIf="orderList && orderList.length">
+        <div class="row body-content">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <table class="custom-table table table-bordered">
+              <thead>
+                <tr>
+                  <th>{{ "HEADING_TEXT.ORDER_NUMBER" | translate }}</th>
+                  <th>{{ "HEADING_TEXT.CUSTOMER_NAME" | translate }}</th>
+                  <th>{{ "HEADING_TEXT.NO_OF_ITEMS" | translate }}</th>
+                  <th>{{ "HEADING_TEXT.TOTAL_AMOUNT" | translate }}</th>
+                  <th>{{ "HEADING_TEXT.ORDER_STATUS" | translate }}</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let order of orderList; let i = index">
+                <tr>
+                  <td>
+                    <a
+                      [routerLink]="['order-listing', order.number]"
+                      target="_blank"
+                      >{{ order?.number || "-" }}</a
+                    >
+                  </td>
+                  <td>{{ order?.customerAddress?.name || "-" }}</td>
+                  <td>{{ order?.items?.length || "-" }}</td>
+                  <td>{{ order?.total || "-" }}</td>
+                  <td>
+                    <button
+                      type="button"
+                      [ngClass]="
+                        order.status === 'RCV'
+                          ? 'btn btn-secondary'
+                          : order.status === 'PREP'
+                          ? 'btn btn-info'
+                          : 'btn btn-success'
+                      "
+                      (click)="changeStatus(order.status, i)"
+                    >
+                      {{
+                        order?.status
+                          ? ("ORDER_STATUS." + order.status | translate)
+                          : "-"
+                      }}
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="no-data-found" *ngIf="!orderData">
+      <p>{{ "LABEL_TEXT.NO_ORDER_AVAILABLE" | translate }}</p>
+    </div>
+  </div>
+</section>

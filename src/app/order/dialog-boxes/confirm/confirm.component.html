@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>{{"HEADING_TEXT.CONFIRM_DIALOG" | translate}}</h1>
+<div mat-dialog-content>
+  <p>{{ "LABEL_TEXT.CONFIRMATION_TEXT" | translate }}</p>
+</div>
+<div mat-dialog-actions class="actions">
+  <button id="cancel" type='button' class="btn btn-secondary" (click) ="onClickCancel()">{{"BTN_TEXT.CANCEL" | translate}}</button>
+  <button type='button' class="btn btn-danger" (click)="onClickYes()">{{"BTN_TEXT.SUBMIT" | translate}}</button>
+</div>

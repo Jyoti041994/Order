@@ -1,0 +1,32 @@
+{
+  "HEADING_TEXT": {
+   "ORDER_LISTING_PAGE" : "Order Listing Page",
+   "ORDER_NUMBER" : "Order Number",
+   "CUSTOMER_NAME" : "Customer Name",
+   "NO_OF_ITEMS" : "No. Of Items",
+   "TOTAL_AMOUNT" : "Total Amount",
+   "ORDER_STATUS" : "Status",
+   "ORDER_DETAIL_PAGE" : "Order Detail Page",
+   "ITEM_NAME" : "Item Name",
+   "PRICE" : "Price",
+   "DELIVERY_ADDRESS" : "Delivery Address",
+   "STATUS" : "Status",
+   "CONFIRM_DIALOG" : "Confirmation Dialog"
+  },
+  "LABEL_TEXT" : {
+    "NO_ORDER_AVAILABLE": "No Order Available",
+    "CONFIRMATION_TEXT" : "Do you want to change order status? "
+  },
+  "BTN_TEXT": {
+    "CANCEL" : "cancel",
+    "SUBMIT" : "Submit"
+  },
+  "ACTION_TEXT": {
+   
+  },
+  "ORDER_STATUS" : {
+     "RCV":"Received" ,
+     "PREP":"Preparing" ,
+     "RTS":"Ready To Serve" 
+  }
+}

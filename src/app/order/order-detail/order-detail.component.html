@@ -1,0 +1,61 @@
+<section>
+  <div class="container order-container">
+    <div class="row">
+      <div class="col-sm-6 col-xs-12 head">
+        <h4>{{ "HEADING_TEXT.ORDER_DETAIL_PAGE" | translate }}</h4>
+      </div>
+    </div>
+
+    <div class="row page-title">
+      <div class="col-md-8">
+        <h6>
+          <strong>{{ "HEADING_TEXT.ORDER_NUMBER" | translate }} </strong> :
+          {{ itemList[0].number || "-" }} |
+          <strong>{{ "HEADING_TEXT.STATUS" | translate }} </strong> :
+          {{ "ORDER_STATUS." + itemList[0].status | translate }}
+        </h6>
+      </div>
+    </div>
+    <div *ngIf="itemData">
+      <div *ngIf="itemList && itemList.length">
+        <div class="row body-content">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <table class="custom-table table table-bordered">
+              <thead>
+                <tr>
+                  <th>{{ "HEADING_TEXT.ITEM_NAME" | translate }}</th>
+                  <th>{{ "HEADING_TEXT.PRICE" | translate }}</th>
+                  <th>{{ "HEADING_TEXT.CUSTOMER_NAME" | translate }}</th>
+                  <th>{{ "HEADING_TEXT.DELIVERY_ADDRESS" | translate }}</th>
+                </tr>
+              </thead>
+              <ng-container *ngFor="let order of itemList">
+                <tbody *ngFor="let item of order.items; let i = index">
+                  <tr>
+                    <td>
+                      {{ item?.name || "-" }}
+                    </td>
+                    <td>{{ item?.price || "-" }}</td>
+                    <td>{{ order?.customerAddress?.name || "-" }}</td>
+                    <td>
+                      {{
+                        order?.customerAddress?.city +
+                          "," +
+                          order?.customerAddress?.pin_code +
+                          "," +
+                          order?.customerAddress?.phone || "-"
+                      }}
+                    </td>
+                  </tr>
+                </tbody>
+              </ng-container>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="no-data-found" *ngIf="!itemData">
+      <p>{{ "LABEL_TEXT.NO_ORDER_AVAILABLE" | translate }}</p>
+    </div>
+  </div>
+</section>
